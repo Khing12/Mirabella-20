@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Before We Begin 🎁</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #d2b2ff, #f3e1ff);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: #4a0072;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      width: 250px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      background-color: #8e44ad;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    button.visible {
+      opacity: 1;
+      animation: pulse 1.2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+      100% { transform: scale(1); }
+    }
+
+    .error {
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>When did you and Chris become friends?</h1>
+  <input type="text" id="answer" placeholder="Type here..." />
+  <div id="error" class="error"></div>
+  <button id="openButton" onclick="goToSurprise()">🎁 Click to Open</button>
+
+  <script>
+    const answerInput = document.getElementById('answer');
+    const openButton = document.getElementById('openButton');
+    const errorMsg = document.getElementById('error');
+
+    answerInput.addEventListener('input', () => {
+      const input = answerInput.value.trim().toLowerCase();
+      if (input === 'november 2022') {
+        openButton.classList.add('visible');
+        errorMsg.textContent = '';
+      } else {
+        openButton.classList.remove('visible');
+        errorMsg.textContent = '';
+      }
+    });
+
+    function goToSurprise() {
+      window.location.href = 'birthday.html';
+    }
+  </script>
+</body>
+</html>
